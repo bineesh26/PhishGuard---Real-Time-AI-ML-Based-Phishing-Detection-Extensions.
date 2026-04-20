@@ -1,0 +1,44 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+venv/
+env/
+.env
+
+# Data and Models
+*.csv
+*.pkl
+*.h5
+*.pickle
+
+# Output and Logs
+output.txt
+time_complexity_analysis.txt
+*.log
+
+# Plots / Images generated in root or backend/models
+*cm.png
+test_plot.png
+
+# IDE / Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node / JS (Just in case)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Extension
+extension/*.crx
+extension/*.pem

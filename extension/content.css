@@ -1,0 +1,132 @@
+/* Floating Scan Button */
+.phishguard-floating-btn {
+    position: absolute;
+    z-index: 2147483647; /* Max z-index to appear over anything */
+    background: linear-gradient(135deg, #6366f1, #3b82f6);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    pointer-events: auto;
+    opacity: 0;
+    transform: translateY(5px);
+    animation: phishguard-fade-in 0.2s forwards;
+}
+
+.phishguard-floating-btn::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'%3E%3C/path%3E%3C/svg%3E");
+    background-size: cover;
+}
+
+.phishguard-floating-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.5);
+    background: linear-gradient(135deg, #4f46e5, #2563eb);
+}
+
+.phishguard-floating-btn:active {
+    transform: translateY(0);
+}
+
+.phishguard-floating-btn.loading {
+    background: #475569;
+    cursor: wait;
+    box-shadow: 0 4px 12px rgba(71, 85, 105, 0.4);
+}
+
+.phishguard-floating-btn.loading::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid white;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: phishguard-spin 1s linear infinite;
+    background-image: none;
+}
+
+/* Tooltip Result */
+.phishguard-tooltip {
+    position: absolute;
+    z-index: 2147483647;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    min-width: 200px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: phishguard-fade-in 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.phishguard-tooltip .title {
+    font-weight: 700;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.phishguard-tooltip.phishing .title {
+    color: #ef4444; /* Red */
+}
+
+.phishguard-tooltip.legitimate .title {
+    color: #10b981; /* Green */
+}
+
+.phishguard-tooltip .details {
+    font-size: 12px;
+    color: #cbd5e1;
+}
+
+.phishguard-close-btn {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: none;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    pointer-events: auto;
+}
+
+.phishguard-close-btn:hover {
+    color: white;
+}
+
+@keyframes phishguard-fade-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes phishguard-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
